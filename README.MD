@@ -1,10 +1,16 @@
 # Postman collection:
 
-    DIR: Api.postman_collection.json
+    Api.postman_collection.json
 
 # Running demo:
 
 https://exchanger.datoenlinea.com/
+
+https://exchanger.datoenlinea.com/documentation
+
+# Swagger url:
+
+{url}/documentation
 
 # How to run:
 
