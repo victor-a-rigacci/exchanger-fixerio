@@ -1,0 +1,56 @@
+{
+  "name": "challenge-settle",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf dist/ && babel ./src --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files  --source-maps",
+    "start": "npm run build && cross-env NODE_ENV=new-dev node --inspect=12345 dist/server/index.js",
+    "dev": "npm run build &&  cross-env NODE_ENV=local-env nodemon ./src/server/index.js",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "prettier": "prettier --write **/*.{js,json,md}"
+  },
+  "dependencies": {
+    "@hapi/hapi": "20.1.0",
+    "@hapi/inert": "^6.0.3",
+    "@hapi/vision": "^6.0.1",
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
+    "hapi-swagger": "14.1.0",
+    "joi": "17.4.0",
+    "mongoose": "^5.11.15",
+    "node-cache": "^5.1.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.13",
+    "@babel/core": "^7.12.13",
+    "@babel/node": "^7.12.13",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "7.12.13",
+    "@babel/register": "^7.12.13",
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "prettier": "^2.2.1"
+  },
+  "lint-staged": {
+    "src/*.js": [
+      "eslint src --fix",
+      "prettier --write"
+    ],
+    "*.{md}": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm test"
+    }
+  },
+  "engines": {
+    "node": "14.x"
+  }
+}

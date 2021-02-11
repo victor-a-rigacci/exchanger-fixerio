@@ -1,0 +1,29 @@
+{
+  "extends": ["eslint:recommended", "airbnb-base", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
+  "rules": {
+    "camelcase": "off",
+    "import/prefer-default-export": "off",
+    "no-console": "off",
+    "semi": ["error", "never"],
+    "max-len": [
+      "error",
+      {
+        "code": 180,
+        "tabWidth": 2,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
+      }
+    ]
+  },
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "globals": {
+    "expect": true,
+    "assert": true
+  }
+}

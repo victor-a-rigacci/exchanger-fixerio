@@ -1,0 +1,6 @@
+node_modules
+.nyc*
+.history
+launch.json
+dist
+.env
