@@ -16,7 +16,7 @@ https://exchanger.datoenlinea.com/documentation
 | [GET]  | https://exchanger.datoenlinea.com/rates           | _Get cached original rates from FixerIO API_ |                                                                                             |
 | [GET]  | https://exchanger.datoenlinea.com/pairs           | _Get all pairs created with fee > 0_         |                                                                                             |
 | [POST] | https://exchanger.datoenlinea.com/pairs           | _Create/update pair fee_                     | `{"pairs": [{"pair": "EURUSD","feePercentage": 12},{"pair": "USDEUR","feePercentage": 5}]}` |
-| [POST] | https://exchanger.datoenlinea.com/pairs/selective | \*Get selected pairs with fee\*              | `{"pairs": ["EURUSD","EURARS","USDARS"]}`                                                   |
+| [POST] | https://exchanger.datoenlinea.com/pairs/selective | _Get selected pairs with fee_                | `{"pairs": ["EURUSD","EURARS","USDARS"]}`                                                   |
 
 # Swagger url:
 
