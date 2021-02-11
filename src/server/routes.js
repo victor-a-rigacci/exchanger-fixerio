@@ -1,4 +1,4 @@
-// import Joi from "joi"
+import Joi from "joi"
 import * as ratesController from "./rates/rates.controller"
 
 export const setRoutes = server => {
@@ -37,6 +37,18 @@ export const setRoutes = server => {
     path: "/pairs",
     options: {
       handler: ratesController.postPairFees,
+      validate: {
+        payload: Joi.object({
+          pairs: Joi.array()
+            .items(
+              Joi.object({
+                pair: Joi.string().required(),
+                feePercentage: Joi.number().required()
+              })
+            )
+            .required()
+        }).required()
+      },
       tags: ["api"],
       notes: ["Update pair fee"]
     }
@@ -48,6 +60,11 @@ export const setRoutes = server => {
     options: {
       handler: ratesController.postExchangeFromTo,
       tags: ["api"],
+      validate: {
+        payload: Joi.object({
+          pairs: Joi.array().items(Joi.string().required()).required()
+        }).required()
+      },
       notes: ["Return selected pairs with their fees."]
     }
   })
